@@ -1,0 +1,163 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Todo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Repsinc</a>
+                </li> -->
+            </ul>
+            <div class="d-flex align-items-center justify-content-center">
+                <small class="align-items-center justify-content-center d-flex mb-0 pb-0"> <strong>Welcome: </strong>
+                    <span class="px-2">AKil</span>
+                </small>
+                <button class="btn btn-warning text-dark btn-sm" (click)="logOut()">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- <header class="pc-header ">
+    <div class="header-wrapper">
+        <div class="me-auto pc-mob-drp">
+            <ul class="list-unstyled">
+                <li class="dropdown pc-h-item">
+                    <a class="pc-head-link active dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="false" aria-expanded="false">
+                        Heidi
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="ms-auto">
+                <ul class="list-unstyled">
+                    <li class="d-block d-lg-none mt-3 pt-1">
+                        <button (click)="toggleSidebar()">
+                            Toggle
+                        </button>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/logo.png" alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Joseph William</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+                            <a href="auth-signin-3.html" class="dropdown-item">
+                                <span>Profile Details</span>
+                            </a>
+                            <a href="auth-signin-3.html" class="dropdown-item">
+                                <span>Preferences</span>
+                            </a>
+                            <a href="auth-signin-3.html" class="dropdown-item">
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+
+    </div>
+</header> -->
+
+
+<!-- [ Pre-loader ] End -->
+<!-- [ Mobile header ] start -->
+<div class="pc-mob-header pc-header">
+    <!-- <div class="pcm-logo">
+        <img src="assets/images/logo.svg" alt="logo" class="logo logo-lg">
+    </div> -->
+    <a class="pc-head-link d-flex flex-column-reverse align-right mt-0 text-end" id="mobile-collapse"
+        (click)="onMenuButtonClick()">
+        <div class="">
+            <div class=" ">
+                <div class="hamburger-inner">
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<!-- [ Mobile header ] End -->
+
+<!-- [ Header ] start -->
+
+<header class="mt-5 mt-md-0 pt-4 pt-md-0 photosonic-header pc-header"
+    [ngClass]="this.auth.getsidebarstate() ? 'zero' : ''">
+
+    <div class="header-wrapper">
+        <div class="d-flex align-items-center">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link pointer d-flex flex-column-reverse align-right mt-0 text-end"
+                            id="mobile-collapse" (click)="onMenuButtonClick()">
+                            <div class="">
+                                <div class=" ">
+                                    <div class="hamburger-inner ">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+            <ul class="list-unstyled ">
+                <li>
+                    <div class="pcm-logo">
+                        <img src="assets/images/logo.png" alt="logo" class="logo logo-lg ms-md-3" height="30px">
+                        <span class="p-0 text-blue ms-3 d-none d-lg-inline-flex">Heidi</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ms-auto ">
+            <ul class="list-unstyled d-flex align-items-center">
+
+                <li class="dropdown pc-h-item d-none d-md-inline-flex">
+                    <div id="google_translate_element"></div>
+                </li>
+                <li class="dropdown pc-h-item">
+                    <a class="pc-head-link dropdown-toggle arrow me-0 mt-0" data-bs-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="{{this.profilePic ? this.auth.getapi() + this.profilePic : '/assets/images/user.png'}}"
+                            alt="" class="avatar-logo rounded-circle bg-transparent img-fluid me-2 objFit"
+                            style="height: 30px; width: 30px;" width="30px" />
+                        <!-- 
+                        <img [src]="profilePic || 'assets/images/user.png'" alt=""
+                            class="avatar-logo rounded-circle bg-transparent img-fluid me-2 objFit"
+                            style="height: 30px; width: 30px;" width="30px" /> -->
+
+
+                        <span>
+                            <span class="user-name text-truncate"> AKil
+                            </span>
+                            <span class="user-desc text-nowrap text-truncate"> akilmehar12@gmail.com
+                            </span>
+                        </span>
+                        <!-- <i class="bx bx-chevron-down text-black"></i> -->
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+                        <a routerLink="/admin/settings" class="dropdown-item mt-0">
+                            <i class='bx bx-cog fs-6 me-2'></i>Settings
+                        </a>
+                        <a class="dropdown-item mt-0 pointer" (click)="logout()">
+                            <i class="bx bx-power-off fs-6 me-2 cursor-pointer"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- [ Header ] end -->

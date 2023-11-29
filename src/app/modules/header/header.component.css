@@ -1,0 +1,21 @@
+.pointer {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+    .photosonic-header {
+        margin-top: 6.8% !important;
+    }
+}
+
+.zero {
+    left: 0;
+    margin-left: 0;
+    top: 0;
+}
+
+.pc-header {
+    .header-wrapper {
+        padding: 0 20px;
+    }
+}

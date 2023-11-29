@@ -1,0 +1,9 @@
+    <!-- <div class="main-content" [ngClass]="this.auth.showSide() ? 'main-content' : 'zero'"> -->
+    <!-- <div class="pcoded-content ps-lg-2 pe-lg-5"> -->
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <div class="bg-white pc-container" [ngClass]="this.auth.getsidebarstate() ? 'zero2' : ''">
+        <div class="pcoded-content bg-white">
+            <router-outlet></router-outlet>
+        </div>
+    </div>

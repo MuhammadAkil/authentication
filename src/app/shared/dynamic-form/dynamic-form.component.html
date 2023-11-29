@@ -1,0 +1,77 @@
+<form [formGroup]="addForm" class="my-5" (ngSubmit)="submitForm()">
+    <div class="row  my-3">
+        <div class="form-group my-2 col-md-6 ">
+            <input class="form-control" formControlName="name" type="text" id="name" aria-describedby="name"
+                placeholder="Enter your name" [ngClass]="{ 'is-invalid': submittedform && f['name'].errors }"
+                required />
+            <div *ngIf="submittedform && f['name'].errors" class="invalid-feedback">
+                <div *ngIf="f['name'].errors['required']">Name is required</div>
+            </div>
+        </div>
+        <div class="form-group my-2 col-md-6">
+            <input class="form-control" formControlName="email" type="email" id="email" aria-describedby="email"
+                placeholder="Please your email" [ngClass]="{ 'is-invalid': submittedform && f['email'].errors }"
+                required />
+            <div *ngIf="submittedform && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+            </div>
+        </div>
+
+        <span>
+            <button type="button" class="btn btn-primary my-2 float-end" (click)="addDay()"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg> Add Day</button>
+        </span>
+        <form [formGroup]="daysForm" class="d-flex justify-content-center flex-column">
+
+            <div *ngFor="let day of days; let i = index" class="day-section">
+                <div class="d-flex justify-content-between" [ngStyle]="{backgroundColor:days.length==4?'#000':'#fafa'}">
+                    <h5 class="my-2 text-muted">Day {{ i + 1 }}</h5>
+                    <button type="button" class="btn btn-danger" (click)="removeDay(i)"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-trash" viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                        </svg></button>
+
+                </div>
+                <div class="form-group my-2 col-md-12">
+                    <input class="form-control" [formControlName]="'person' + i" type="text"
+                        placeholder="Person Name" />
+                    <div *ngIf="submittedform && daysForm.get('person' + i)?.errors" class="invalid-feedback">
+                        <div *ngIf="daysForm.get('person' + i)?.hasError('required')">Person name is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group my-2 col-md-12">
+                    <input class="form-control" [formControlName]="'hour' + i" type="number" placeholder="hour" />
+                </div>
+                <div class="form-group my-2 col-md-12">
+                    <input class="form-control" [formControlName]="'rate' + i" type="number" placeholder="rate" />
+                </div>
+                <div class="my-2 text-muted"><strong>Day {{ i + 1 }} total:</strong> {{ calculateDayTotal(i) }}
+                </div>
+                <hr>
+            </div>
+        </form>
+
+        <hr>
+
+
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success btn-md ">
+            Save details
+        </button>
+    </div>
+    Total:
+    <div class="d-flex ">
+        <h5>{{calculateSumOfDayTotals()}}</h5>
+    </div>
+</form>

@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #fff;
+
+}
+
+* {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important;
+
+}
+
+.scrolling {
+    overflow: auto;
+    /* or overflow: scroll; */
+    scrollbar-width: thin;
+    /* For Firefox, which supports this property */
+    scrollbar-color: transparent transparent;
+    /* For Firefox, which supports this property */
+    position: relative;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+.scrolling::-webkit-scrollbar {
+    width: 0.1px;
+    height: 0.1px;
+}
+
+.scrolling::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.scrolling::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    /* Adjust this to the desired width of the custom scrollbar */
+    background: #cacaca;
+    /* Adjust this to the desired background color of the custom scrollbar */
+    opacity: 0;
+    /* Hide the custom scrollbar by default */
+    z-index: 1;
+}
+
+/* Show the custom scrollbar when hovering */
+.scrolling:hover::before {
+    opacity: 1;
+}
+
+.ml-30 {
+    margin-left: 30px
+}
+
+.code {
+    white-space: pre-line !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #35a7fb !important;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.border8 {
+    border: 8px 8px 0px 8px;
+}
+
+.bg-code {
+    border-radius: 8px 8px 8px 8px;
+    background: #2c333b;
+}
+
+a:hover {
+    text-decoration: underline;
+}

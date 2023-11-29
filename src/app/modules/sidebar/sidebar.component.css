@@ -1,0 +1,134 @@
+:host {
+    --blue-color: #008dff;
+    --pink-color: #d748ff;
+    --yellow-color: #ffe310;
+    --green-color: #6df2fc;
+    --light-color: #f1f1f1;
+    --muted-color: #6c757d;
+  }
+  
+  .form-select {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 13px !important;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--pink-color);
+    background-color: #f4e9e9;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+  
+  }
+  
+  .form-select:focus {
+    border-color: var(--pink-color);
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  .pc-sidebar .navbar-content {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+  }
+  
+  .zero {
+    width: 0 !important;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    /* .pc-sidebar {
+      // left: 0 !important;
+      margin-top: 70px !important;
+    } */
+  
+    nav {
+      width: 239px !important;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      transition: left 0.3s ease;
+    }
+  
+    .open {
+      left: 0;
+      width: 239px;
+      display: block;
+    }
+  }
+  
+  .gradient_border:hover {
+    border-style: solid;
+  
+    border-width: 10px;
+  
+    border-image: linear-gradient(45deg, rgb(0, 143, 104), rgb(250, 224, 66)) 1;
+  }
+  
+  /* .pc-sidebar { */
+    /* // left: 0 !important;
+    // margin-top: 70px !important;
+  } */
+  
+  .offcanvas.offcanvas-start {
+    top: 10%;
+    left: 40px;
+    width: 320px !important;
+    border-radius: 5px;
+  
+  }
+  
+  @media screen and (min-width: 768px) {
+ 
+    .offcanvas.offcanvas-start {
+      left: 239px;
+      bottom: 7%;
+  
+    }
+  }
+  
+  nav {
+    width: 239px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    transition: left 0.3s ease;
+  }
+  
+  @media screen and (min-width:1025px) {
+    .open {
+      left: 0;
+      width: 0;
+      display: none;
+    }
+  }
+  
+  .upgrade {
+    position: absolute;
+    width: 239px;
+    bottom: 5vh; 
+    background-color: white !important;
+  
+  }
+  
+  .btn-transition {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-transition:hover {
+  
+    transform: scale(1.1);
+  }
+  
+  @media screen and (max-width:1024px) {
+    .upgrade {
+      bottom: 85px; 
+    }
+  }

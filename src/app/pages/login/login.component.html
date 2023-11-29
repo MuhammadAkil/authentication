@@ -1,0 +1,80 @@
+<div class="">
+    <div class="row min-vh-100 justify-content-center box overflow-hidden">
+        <div class="col-md-9 box-inner ">
+            <div class="container py-5 d-flex align-items-center flex-column justify-content-center text-white">
+                <h2 class="mb-2">Welcome Back</h2>
+                <!-- <blockquote>
+                    "The only way to do great work is to love what you do." - Steve Jobs
+                </blockquote> -->
+                <div class="mt-4">
+                    <img class="rounded-5 " height="450"
+                        src="https://media.istockphoto.com/id/1135341047/vector/login-page-on-laptop-screen-notebook-and-online-login-form-sign-in-page-user-profile-access.jpg?s=2048x2048&w=is&k=20&c=N7TPmMcuFjqVbM5FaB_EzNeU7qqDrRI1CBC4tPBRE78="
+                        alt="">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3  mt-5">
+            <h2 class="mt-5 mx-3">Login</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="mx-3">
+                <div class="form-group mb-3">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" formControlName="email" class="form-control" required>
+                    <!-- <div *ngIf="loginForm.get('email')?.hasError('required') && submitted" class="text-danger">
+                        Email is required.
+                    </div> -->
+                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                        <div *ngIf="loginForm.get('email')?.hasError('required')" class="text-danger">Email is
+                            required.</div>
+                        <div *ngIf="loginForm.get('email')?.hasError('email')" class="text-danger">Invalid email
+                            format.</div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" formControlName="password" class="form-control" required>
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        <div *ngIf="loginForm.get('password')?.hasError('required')" class="text-danger">Password
+                            is required.</div>
+                        <!-- <div *ngIf="loginForm.get('password')?.hasError('minlength')" class="text-danger">
+                            Password must be at least 6 characters.</div> -->
+                    </div>
+                </div>
+
+                <button type="submit" class="btn text-white w-100" style="background-color: #440099;"
+                    [disabled]="!loginForm.valid">Login</button>
+                <p class="pt-1"> Dont have an account?<a class="btn btn-sm text-primary" routerLink="/registor">Register
+                        Here</a></p>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<div class="fadeOut alert alert-success d-flex justify-content-between my-3 mx-auto me-1 fixed-top py-3 w-25"
+    *ngIf="showSuccess">
+    <span> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <strong> Success! </strong>Your task is added successfully.</span>
+    <button type="button" class="btn-close" (click)="dismissAlert()"></button>
+</div>
+<div class="fadeOut alert alert-success d-flex justify-content-between my-3 mx-auto me-1 fixed-top py-3 w-25"
+    *ngIf="success">
+    <span> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        Login successful!
+    </span>
+    <button type="button" class="btn-close" (click)="dismissAlert()"></button>
+</div>
+<div class="alert fadeInLeft alert-danger d-flex justify-content-between my-3 mx-auto me-1 fixed-top py-3 w-25"
+    *ngIf="showError">
+    <span> Invalid email or password. </span>
+    <button type="button" class="btn-close" (click)="dismissAlert()"></button>
+</div>
+<div class="alert fadeInLeft alert-danger d-flex justify-content-between my-3 mx-auto me-1 fixed-top py-3 w-25"
+    *ngIf="showAuth">
+    <span> <strong>Oops! User not authenticated.</strong>
+        To proceed, please register.
+
+    </span>
+    <button type="button" class="btn-close" (click)="dismissAlert()"></button>
+</div>

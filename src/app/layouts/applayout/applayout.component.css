@@ -1,0 +1,13 @@
+.zero2 {
+    margin-left: 0 !important;
+  }
+  
+  .pcoded-content {
+    background-color: #f8f8fb !important;
+    min-height: calc(100vh - 70px);
+  }
+  
+  .header-zero {
+    left: 0 !important;
+    position: relative;
+  }
